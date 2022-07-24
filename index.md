@@ -1,37 +1,86 @@
-## Welcome to GitHub Pages
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box1{
+            width: 800px;
+            height: 600px;
+            background-color: black;
+            position: relative;
+            top: calc(10vw + 100px);
+            margin: auto;
+        }
+        .box2,
+        .box3 {
+            width: 180px;
+            height: 288px;
+            background-color: red;
+            position: absolute;
+            top: 50%;
+            bottom: 50%;
+            text-align:center;
+            margin: auto;
+            border-radius: 120px/145px;
+            border-bottom-left-radius: 0%;
+            border-bottom-right-radius: 0%;
+            /* transform-origin: 300px 400px; */
+        }        
+        span{
+            vertical-align: middle;
+            line-height: 200px;
+        }
+        .box2{
+            left:0px;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            animation: move1 1s linear forwards, move2 1s linear forwards, move5 1s ease-in alternate infinite 3s;
+        }
+        .box3{
+            right: 0px;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            animation: move3 1s linear forwards, move4 1s linear forwards,move6 1s ease-in alternate infinite 3s;
+        } 
 
-You can use the [editor on GitHub](https://github.com/ZbcLee/Lee/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+        @keyframes move1{
+            from{transform: translate(0px, 0px)}
+            to {transform: translate(271.2px, 0px)}
+        }
+        @keyframes move2{
+            from{transform: translate(271.2px, 0px) rotate(0deg)}
+            to {transform: translate(271.2px, 0px) rotate(-45deg)}
+        }
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ZbcLee/Lee/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+        @keyframes move3{
+            from{transform: translate(0px, 0px)}
+            to {transform: translate(-271.2px, 0px)}
+        }
+        @keyframes move4{
+            from{transform: translate(-271.2px, 0px) rotate(0deg)}
+            to {transform: translate(-271.2px, 0px) rotate(45deg)}
+        }
+        @keyframes move5{
+            from{transform: translate(271.2px, 0px) rotate(-45deg) scale(0.95)}
+            to {transform: translate(271.2px, 0px) rotate(-45deg) scale(1.05)}
+        }
+        @keyframes move6{
+            from{transform: translate(-271.2px, 0px) rotate(45deg) scale(0.95)}
+            to {transform: translate(-271.2px, 0px) rotate(45deg) scale(1.05)}
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+</body>
+</html>
