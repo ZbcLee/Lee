@@ -11,123 +11,135 @@
             margin: 0;
             padding: 0;
         }
-
-        .box1 {
-            width: 800px;
-            height: 600px;
-            background-color: black;
+        .content{
+            box-sizing: border-box;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background-color: yellow;
+            border: 20px solid red;
             position: relative;
-            top: calc(10vw + 100px);
-            margin: auto;
+            overflow: hidden;
+            transition:all 3s;
         }
-
-        .box2,
-        .box3 {
-            width: 180px;
-            height: 288px;
-            background-color: red;
+        section{
+            box-sizing: border-box;
+            width:500px;
+            border: 4px solid red;
             position: absolute;
+            left: -20px;
             top: 50%;
-            bottom: 50%;
+            border-radius: 50%;
+        }
+        section:nth-of-type(2){
+            transform: rotateZ(120deg);
+        }
+        section:nth-of-type(3){
+            transform: rotateZ(240deg);
+        }
+        .label{
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            /* background-color: blue; */
+            left: -20px;
+            top: -20px;
+        }
+        .label main{
+            height: 250px;
+            width: 100px;
+            /* background-color: aqua; */
+            position: absolute;
+            left: calc(50% - 50px);
             text-align: center;
-            margin: auto;
-            border-radius: 120px/145px;
-            border-bottom-left-radius: 0%;
-            border-bottom-right-radius: 0%;
-            /* transform-origin: 300px 400px; */
+            line-height: 150px;
+            font-size: 25px;
+            transform-origin:bottom ;
         }
-
-        span {
-            vertical-align: middle;
-            line-height: 200px;
+        main:nth-of-type(2){
+            transform: rotateZ(60deg);
         }
-
-        .box2 {
-            left: 0px;
-            border-bottom-left-radius: 15px;
-            border-bottom-right-radius: 15px;
-            animation: move1 3s linear forwards,
-                move2 1s linear forwards 3s,
-                move5 .5s ease-in alternate infinite 4s;
+        main:nth-of-type(3){
+            transform: rotateZ(120deg);
         }
-
-        .box3 {
-            right: 0px;
-            border-bottom-left-radius: 15px;
-            border-bottom-right-radius: 15px;
-            animation: move3 3s linear forwards,
-                move4 1s linear forwards 3s,
-                move6 .5s ease-in alternate infinite 4s;
+        main:nth-of-type(4){
+            transform: rotateZ(180deg);
         }
-
-        @keyframes move1 {
-            from {
-                transform: translate(0px, 0px)
-            }
-
-            to {
-                transform: translate(271.2px, 0px)
-            }
+        main:nth-of-type(5){
+            transform: rotateZ(240deg);
         }
-
-        @keyframes move2 {
-            from {
-                transform: translate(271.2px, 0px) rotate(0deg)
-            }
-
-            to {
-                transform: translate(271.2px, 0px) rotate(-45deg)
-            }
+        main:nth-of-type(6){
+            transform: rotateZ(300deg);
         }
-
-        @keyframes move3 {
-            from {
-                transform: translate(0px, 0px)
-            }
-
-            to {
-                transform: translate(-271.2px, 0px)
-            }
+        .box{
+            width: 500px;
+            height: 500px;
+            position: relative;
+            margin: 200px;
         }
-
-        @keyframes move4 {
-            from {
-                transform: translate(-271.2px, 0px) rotate(0deg)
-            }
-
-            to {
-                transform: translate(-271.2px, 0px) rotate(45deg)
-            }
+        .btn{
+            width: 100px;
+            height: 100px;
+            /* background-color: aqua; */
+            position: absolute;
+            left: calc(50% - 45px);
+            top: calc(50% - 45px);
         }
-
-        @keyframes move5 {
-            from {
-                transform: translate(271.2px, 0px) rotate(-45deg) scale(0.95)
-            }
-
-            to {
-                transform: translate(271.2px, 0px) rotate(-45deg) scale(1.05)
-            }
+        p{
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            background-color: red;
+            border-radius: 50%;
+            color: yellow;
+            cursor: pointer;
+            font-size: 20px;
+            user-select: none;
         }
-
-        @keyframes move6 {
-            from {
-                transform: translate(-271.2px, 0px) rotate(45deg) scale(0.95)
-            }
-
-            to {
-                transform: translate(-271.2px, 0px) rotate(45deg) scale(1.05)
-            }
+        span{
+            display: inline-block;
+            /* background-color: aqua; */
+            position: absolute;
+            left: calc(50% - 20px);
+            top: -60px;
+            border:20px solid transparent;
+            border-bottom: 60px solid red;
+            border-bottom-left-radius: 50%;
+            border-bottom-right-radius: 50%;
         }
     </style>
 </head>
 
 <body>
-    <h3>手机观看请手动进行页面缩放</h3>
-    <div class="box1">
-        <div class="box2"></div>
-        <div class="box3"></div>
+    <div class="box">
+        <div class="content">
+            <section></section>
+            <section></section>
+            <section></section>
+            <div class="label">
+                <main>谢谢惠顾</main>
+                <main>谢谢惠顾</main>
+                <main>谢谢惠顾</main>
+                <main>谢谢惠顾</main>
+                <main>一个女友</main>
+                <main>再转一次</main>
+            </div>
+        </div>
+        <div class="btn">
+            <p>点击抽奖</p>
+            <span></span>
+        </div>
     </div>
 </body>
-
+<script>
+    var btn = document.querySelector('.btn > p');
+    var content = document.querySelector('.content');
+    var key = 0
+    btn.onclick = function(){
+        var num = (parseInt(Math.random() * 10) + 12) * 60
+        key += num
+        content.style.transform = `rotateZ(${key}deg)`
+    }
+</script>
 </html>
